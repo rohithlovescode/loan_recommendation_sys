@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="calculator">
+        <h2>Loan Calculator</h2>
+        <form id="loan-form">
+            <div class="form-group">
+                <label for="loan-amount">Loan Amount (₹)</label>
+                <input type="number" id="loan-amount" required>
+            </div>
+            <div class="form-group">
+                <label for="interest-rate">Interest Rate (%)</label>
+                <input type="number" id="interest-rate" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="loan-tenure">Loan Tenure (months)</label>
+                <input type="number" id="loan-tenure" required>
+            </div>
+            <button type="submit">Calculate EMI</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>

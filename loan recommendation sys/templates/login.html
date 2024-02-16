@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login page</title>
+<style>
+  body {
+    /* haneesh */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    margin-top: 50px; /* Moved further up */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Custom font */
+    font-weight: bolder;
+    font-size: 45px; /* Bigger font size */
+    color: #005dac; /* Custom color */
+    margin: 20px;
+    padding-bottom: 50px; /* Underline */
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #005dac;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  select, input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+  }
+</style>
+<script>
+  function generateOTP() {
+    // Generate a random 6-digit OTP
+    var otp = Math.floor(100000 + Math.random() * 900000);
+    
+    // Display the OTP in the dropdown box
+    document.getElementById("otpDropdown").innerHTML = "<option value='" + otp + "'>" + otp + "</option>";
+  }
+  </script>
+  <script>
+  function verifyOTP() {
+    // Get the selected OTP from the dropdown box
+    var selectedOTP = document.getElementById("otpDropdown").value;
+    
+    // Get the user input OTP
+    var userInput = document.getElementById("userInput").value;
+    
+    // Verify if the OTP matches the user input
+    if (selectedOTP === userInput) {
+      // Redirect to /index route in Flask
+      window.location.href = "/index";
+    } else {
+      alert("OTP Verification Failed. Please try again.");
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="container">
+    <h1>LOAN RECOMMENDATION SYSTEM</h1>
+    <h2>Generate OTP and Verify</h2>
+    
+    <!-- Button to generate OTP -->
+    <button onclick="generateOTP()">Generate OTP</button>
+    
+    <!-- Dropdown box to display generated OTP -->
+    <select id="otpDropdown">
+      <!-- Generated OTP will be displayed here -->
+    </select>
+    
+    <br><br>
+    
+    <!-- Input field for user to enter OTP for verification -->
+    <input type="text" id="userInput" placeholder="Enter OTP">
+    
+    <!-- Button to verify OTP -->
+    <button onclick="verifyOTP()">Verify OTP</button>
+    
+    <!-- Link to the page to enter details -->
+    <p>Don’t have an account? <a href="/registration" style="color: #005dac; text-decoration: none;">Register Now </a></p>
+  </div>
+</body>
+</html>
